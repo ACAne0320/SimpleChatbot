@@ -173,12 +173,12 @@ class DataSet:
         # 初始化后即不可变的通用哈希表，本质是tensorflow 内置字典，把字典变成tf支持得字典类型。
         table = tf.lookup.StaticHashTable(
             # 要使用的表初始值设定项
-                initializer=tf.lookup.TextFileInitializer(
-                filename=os.path.join(data_path, 'all_dict.txt'),  # 文件路径
-                key_dtype=tf.string,  # 键的类型
-                key_index=tf.lookup.TextFileIndex.WHOLE_LINE,  # 键的索引
-                value_dtype=tf.int64,  # 值的类型
-                value_index=tf.lookup.TextFileIndex.LINE_NUMBER  # 值的索引
+            initializer = tf.lookup.TextFileInitializer(
+            filename = os.path.join(data_path, 'all_dict.txt'),  # 文件路径
+            key_dtype = tf.string,  # 键的类型
+            key_index = tf.lookup.TextFileIndex.WHOLE_LINE,  # 键的索引
+            value_dtype = tf.int64,  # 值的类型
+            value_index = tf.lookup.TextFileIndex.LINE_NUMBER  # 值的索引
             ),
             # 表中缺少键时使用的值。
             default_value=self.const['_UNK'] - len(self.const)

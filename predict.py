@@ -22,14 +22,14 @@ for i in ['_EOS', '_BOS']:
 
 
 # 模型预测
-def predict(sentence, checkpoint_path, word2id, id2word, const, max_length=50):
+def predict(sentence, checkpoint_path, word2id, id2word, const, max_length = 50):
     # 导入训练参数
     vocab_size = len(word2id)
     encoder, decoder, optimizer, loss_object, checkpoint = create_model(vocab_size, embedding_dim=256, hidden_dim=512)
 
     checkpoint.restore(tf.train.latest_checkpoint(checkpoint_path))
     # 给句子添加开始和结束标记
-    sentence = '_BOS' + senence + '_EOS'
+    sentence = '_BOS' + sentence + '_EOS'
     # 添加识别不到的词，用_UNK表示
     inputs = [word2id.get(i, const['_UNK']) for i in jieba.lcut(sentence)]
 

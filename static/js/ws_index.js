@@ -51,7 +51,8 @@ $(window).on('keydown', function(e) {
 })
 
 // Connect to the Socket.IO server
-const socket = io.connect('http://' + document.domain + ':' + location.port);
+const socket = io.connect('http://' + document.domain + ':' + location.port);  // document.domain 获取/设置当前文档的原始域         location.port 返回当前URL的端口号
+
 
 let typingElement;
 

@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request
+# flask-socketio 简单使用指南 https://zhuanlan.zhihu.com/p/94875211
+
+from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 from train import create_model
 import tensorflow as tf
